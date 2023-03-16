@@ -11,8 +11,8 @@ const formUpload = require('../../helper/formUpload')
 //route products
 router.get('/', productController.get)
 router.get('/:id', productController.getById)
-router.post('/', verifyToken, formUpload.array('image'), productController.add)
-router.patch('/:id',verifyToken, formUpload.array('image'), productController.update)
+router.post('/', formUpload.array('image'), productController.add)
+router.patch('/:id', formUpload.array('image'), productController.update)
 router.delete('/:id', productController.remove)
 
 //export

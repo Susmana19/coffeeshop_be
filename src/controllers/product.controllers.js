@@ -51,7 +51,7 @@ const productController = {
                 if(typeof result.oldImages != "undefined"){
                 for (let index = 0; index < result.oldImages.length; index++) {
                 // console.log(result.oldImages[index].filename)
-                unlink(`public/uploads/images/${result.oldImages[index].filename}`, (err) => {
+                unlink(`public/uploads/images/tmp/${result.oldImages[index].filename}`, (err) => {
                         // if (err) throw err;
                 // console.log(`successfully deleted ${result.oldImages[index].filename}`);
                     });
@@ -68,7 +68,7 @@ const productController = {
         return productModel.remove(req.params.id)
         .then((result) => {
             for (let i = 0; i < result.length; i++) {
-                unlink(`public/uploads/images/${result[i].filename}`, (err) => {
+                unlink(`public/uploads/images/tmp/${result[i].filename}`, (err) => {
                     if (err) throw err;
                     console.log(`successfully deleted ${result[i].filename}`);
                 })
